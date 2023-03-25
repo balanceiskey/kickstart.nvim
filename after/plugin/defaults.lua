@@ -28,50 +28,48 @@ vim.keymap.set('n', '<S-J>', '<C-w>j', opts)
 -- clear search
 vim.keymap.set('n', '<leader>m', ':set hlsearch!<cr>', opts)
 
--- " CLEAR SEARCH
--- noremap <silent> <leader>m :noh<cr>
---
--- " QUICK VIMRC CHANGES
--- noremap <leader>sv :source $MYVIMRC<cr>
--- noremap <leader>ev :vsplit $MYVIMRC<cr>
---
--- noremap <leader>n :NERDTreeToggle<cr>
--- noremap <leader>f :NERDTreeFind<cr>
---
--- " redraw
--- noremap <leader>r :redraw!<cr>
---
--- " toggle indents
--- noremap <leader>t :IndentLinesToggle<cr>
---
+-- quick config changes for this file
+vim.keymap.set('n', '<leader>ev', ':vs ~/.config/nvim/after/plugin/defaults.lua<cr>', opts)
+vim.keymap.set('n', '<leader>sv', ':so ~/.config/nvim/after/plugin/defaults.lua<cr>', opts)
 
 local options = {
 
 	-- vim things
+	smartcase = true,
 	swapfile = false,
 	writebackup = false,
-	smartcase = true,
 
 	-- tabs, spaces
 	expandtab = true,
-	tabstop = 2,
 	shiftwidth = 2,
-	softtabstop = 2,
 	smartindent = true,
-	
+	softtabstop = 2,
+	tabstop = 2,
+
 	-- folds
-	foldmethod = 'indent',
-	foldnestmax = 10,
 	foldenable = false,
 	foldlevel = 2,
+	foldmethod = 'indent',
+	foldnestmax = 10,
+
+	-- splits
+	splitbelow = true,
+	splitright = true,
 
 	-- appearance
 	cursorline = true,
 
 	number = false, -- numbers off til you need'em (also not taking?)
 	hlsearch = true, -- highlight in-buffer searches  (this is not taking for some reason)
+
+  -- these are off by default as-is, but handy
+  -- to explicitly set as we're re-sourcing this document
+	relativenumber = false,
 }
 
-
 for k, v in pairs(options) do vim.opt[k] = v end
+
+vim.cmd [[
+	color nord
+]]
 
