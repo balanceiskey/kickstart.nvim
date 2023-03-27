@@ -32,10 +32,12 @@ vim.keymap.set('n', '<leader>m', ':set hlsearch!<cr>', opts)
 vim.keymap.set('n', '<leader>ev', ':vs ~/.config/nvim/after/plugin/defaults.lua<cr>', opts)
 vim.keymap.set('n', '<leader>sv', ':so ~/.config/nvim/after/plugin/defaults.lua<cr>', opts)
 
+-- highlight group under cursor
+vim.keymap.set('n', '<leader>ss', ':TSHighlightCapturesUnderCursor<cr>', opts)
+
 local options = {
 
 	-- vim things
-	smartcase = true,
 	swapfile = false,
 	writebackup = false,
 
@@ -62,12 +64,12 @@ local options = {
 	number = false, -- numbers off til you need'em (also not taking?)
 	hlsearch = true, -- highlight in-buffer searches  (this is not taking for some reason)
 
-  -- these are off by default as-is, but handy
-  -- to explicitly set as we're re-sourcing this document
+	-- these are off by default as-is, but handy
+	-- to explicitly set as we're re-sourcing this document
 	relativenumber = false,
 }
 
-for k, v in pairs(options) do vim.opt[k] = v end
+for k, v in pairs(options) do vim.o[k] = v end
 
 vim.cmd [[
 	color nord

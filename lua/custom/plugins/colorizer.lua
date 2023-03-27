@@ -6,6 +6,7 @@ return {
 			'css';
 			'javascript';
 			'yaml';
+			'toml';
 			html = {
 				mode = 'foreground';
 			}
