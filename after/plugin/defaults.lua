@@ -35,6 +35,10 @@ vim.keymap.set('n', '<leader>sv', ':so ~/.config/nvim/after/plugin/defaults.lua<
 -- highlight group under cursor
 vim.keymap.set('n', '<leader>ss', ':TSHighlightCapturesUnderCursor<cr>', opts)
 
+vim.keymap.set('n', '<leader>ff', ':Telescope find_files theme=get_ivy<cr>', opts)
+vim.keymap.set('n', '<leader>fg', ':Telescope live_grep<cr>', opts)
+vim.keymap.set('n', '<leader>fb', ':Telescope buffers theme=get_ivy<cr>', opts)
+
 local options = {
 
 	-- vim things
@@ -72,6 +76,6 @@ local options = {
 for k, v in pairs(options) do vim.o[k] = v end
 
 vim.cmd [[
-	color nord
+	color celeste
 ]]
 
