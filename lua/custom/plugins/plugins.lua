@@ -1,4 +1,5 @@
 return {
+	{ dir = "~/Projects/vim-framer-syntax-nvim/framer_syntax_dark" },
 	'nvim-treesitter/playground',
 	{
 		'lukas-reineke/headlines.nvim',
