@@ -1,3 +1,5 @@
+local fn = vim.fn
+
 -- KEY BINDINGS
 
 -- Modes
@@ -7,10 +9,6 @@
 --   visual_block_mode = "x",
 --   term_mode = "t",
 --   command_mode = "c",
-
--- remap leader to ,
-vim.g.mapleader = ","
-vim.g.maplocalleader = ","
 
 local opts = { noremap = true, silent = true }
 
@@ -71,6 +69,7 @@ local options = {
 	-- these are off by default as-is, but handy
 	-- to explicitly set as we're re-sourcing this document
 	relativenumber = false,
+-- :set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:␣
 }
 
 for k, v in pairs(options) do vim.o[k] = v end
@@ -79,3 +78,8 @@ vim.cmd [[
 	color framer_syntax_dark
 ]]
 
+-- Change diagnostic signs.
+fn.sign_define("DiagnosticSignError", { text = "•", texthl = "DiagnosticSignError" })
+fn.sign_define("DiagnosticSignWarn", { text = "•", texthl = "DiagnosticSignWarn" })
+fn.sign_define("DiagnosticSignInformation", { text = "•", texthl = "DiagnosticSignInfo" })
+fn.sign_define("DiagnosticSignHint", { text = "•", texthl = "DiagnosticSignHint" })
