@@ -69,7 +69,8 @@ local options = {
 	-- these are off by default as-is, but handy
 	-- to explicitly set as we're re-sourcing this document
 	relativenumber = false,
--- :set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:␣
+
+	listchars = 'eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:␣',
 }
 
 for k, v in pairs(options) do vim.o[k] = v end
